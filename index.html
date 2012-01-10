@@ -25,67 +25,51 @@
                 $('.redChoice').css('height',mo/total*100);
             } else{alert('Please enter value.'); }
             
-            var string = "The current team configuration provides";
-            
             if(c !==0 || d !==0 || mu !==0 || mo !==0){
                 if (c !== 0 && d == 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({values:1});
-                    $( "#currentLevel").html(string + " maximum control and minimum flexibility");
+                    $( "#currentLevel").html("The current team configuration provides minimum flexibility and maximum control");
                     }
                 else if (c == 0 && d !== 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({value: 2});
-                    $( "#currentLevel").html(string + " very high control and very high flexibility");
                 }
                 else if (c !== 0 && d !== 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({value:3});
-                    $( "#currentLevel").html(string + " very high control and very low flexibility");
                 }
                 else if (c !== 0 && d !== 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:4});
-                    $( "#currentLevel").html(string + " high control and low flexibility");
                 }
                 else if (c !== 0 && d !== 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:5});
-                    $( "#currentLevel").html(string + " considerable control and some flexibility");
                 }
                 else if (c !== 0 && d == 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:6});
-                    $( "#currentLevel").html(string + " considerable control and some flexibility");
                 }
                 else if (c !== 0 && d == 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:7});
-                    $( "#currentLevel").html(string + " some control and some flexibility");
                 }
                 else if (c !== 0 && d == 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:8});
-                    $( "#currentLevel").html(string + " some control and some flexibility");
                 }
                 else if (c == 0 && d !== 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:9});
-                    $( "#currentLevel").html(string + " some control and some flexibility");
                 }
                 else if (c == 0 && d !== 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:10});
-                    $( "#currentLevel").html(string + " some control and considerable flexibility");
                 }
                 else if (c == 0 && d !== 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:11});
-                    $( "#currentLevel").html(string + " some control and considerable flexibility");
                 }
                 else if (c !== 0 && d !== 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:12});
-                    $( "#currentLevel").html(string + " low control and high flexibility");
                 }
                 else if (c == 0 && d == 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:13});
-                    $( "#currentLevel").html(string + " very low control and very high flexibility");
                 }
                 else if (c == 0 && d == 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:14});
-                    $( "#currentLevel").html(string + " very low control and very high flexibility");
                 }
-                else {$( "#slider" ).slider({ value:15});
-                    $( "#currentLevel").html(string + " minimum control and maximum flexibility");}
+                else {$( "#slider" ).slider({ value:15});}
             }
             
             originalValue = $( "#slider" ).slider( "option", "value" );
@@ -110,7 +94,7 @@
         <section id="page"> <!-- Defining the #page section with the section tag -->
             <header> <!-- Defining the header section of the page with the appropriate tag -->
                 <hgroup>
-                    <h1>coFlex</h1>
+                    <h1><img src="coflex.PNG" alt="ccNetw"height="90px"> coFlex</h1>
                     <h3>Team Flexibility as a f(Location)</h3>
                 </hgroup>
             </header>
@@ -335,11 +319,11 @@
                           <option value="9">9</option>
                           <option value="10">10</option>
                         </select></br>
-                        <input type="button" id="updateBtn" value="UPDATE" onclick="coFlex();"/>
+                        <input type="button" value="UPDATE" onclick="coFlex();"/>
                     </div>
                     <div id="flexInfo">
                         <div class="levelDesc" id="currentLevel"></div>
-                        <div class="levelDesc" id="changeLevel"></div>
+                        <div class="levelDesc" id="changeLevel">Describe flexibility change here.</div>
                     </div>
                     <div class="articleBody clear"></div>
                 </article>
@@ -382,48 +366,50 @@
             var slider = $('#slider') 
             
             /* Create the slider */
-            .slider({min:1},{max:15},{step:1},
-                {stop: function(event, ui){
-                            var string = "This desired configuration will provide";
-                            if (ui.value !== originalValue){
-                                switch(parseInt(ui.value)){
-                                    case 1: $('#changeLevel').html(string + " maximum control and minimum flexibility.");
-                                    break;
-                                    case 2: $('#changeLevel').html(string + " very high control and very low flexibility.");
-                                    break;
-                                    case 3: $('#changeLevel').html(string + " very high control and very low flexibility.");
-                                    break;
-                                    case 4: $('#changeLevel').html(string + " high control and low flexibility.");
-                                    break;
-                                    case 5: $('#changeLevel').html(string + " considerable control and some flexibility.");
-                                    break;
-                                    case 6: $('#changeLevel').html(string + " considerable control and some flexibility.");
-                                    break;
-                                    case 7: $('#changeLevel').html(string + " some control and some flexibility.");
-                                    break;
-                                    case 8: $('#changeLevel').html(string + " some control and some flexibility.");
-                                    break;
-                                    case 9: $('#changeLevel').html(string + " some control and some flexibility.");
-                                    break;
-                                    case 10: $('#changeLevel').html(string + " some control and considerable flexibility.");
-                                    break;
-                                    case 11: $('#changeLevel').html(string + " some control and considerable flexibility.");
-                                    break;
-                                    case 12: $('#changeLevel').html(string + " low control and high flexibility.");
-                                    break;
-                                    case 13: $('#changeLevel').html(string + " very low control and very high flexibility.");
-                                    break;
-                                    case 14: $('#changeLevel').html(string + " very low control and very high flexibility.");
-                                    break;
-                                    case 15: $('#changeLevel').html(string + " minimum control and maximum flexibility.");
-                                    break;
-                                }
-                                $('#changeLevel').show();
-                            } else {
-                                $('#changeLevel').hide();
-                                }
-                       }
-                    }),
+            .slider(
+                {min:1},
+                {max:15},
+                {step:1},
+                {
+              stop: function(event, ui){
+                    var string = "This desired configuration will provide";
+                    if (ui.value !== originalValue){
+                        switch(parseInt(ui.value)){
+                            case 1: $('#changeLevel').html(string + " maximum control and minimum flexibility.");
+                            break;
+                            case 2: $('#changeLevel').html(string + " very high control and very low flexibility.");
+                            break;
+                            case 3: $('#changeLevel').html(string + " very high control and very low flexibility.");
+                            break;
+                            case 4: $('#changeLevel').html(string + " high control and low flexibility.");
+                            break;
+                            case 5: $('#changeLevel').html(string + " considerable control and some flexibility.");
+                            break;
+                            case 6: $('#changeLevel').html(string + " considerable control and some flexibility.");
+                            break;
+                            case 7: $('#changeLevel').html(string + " some control and some flexibility.");
+                            break;
+                            case 8: $('#changeLevel').html(string + " some control and some flexibility.");
+                            break;
+                            case 9: $('#changeLevel').html(string + " some control and some flexibility.");
+                            break;
+                            case 10: $('#changeLevel').html(string + " some control and considerable flexibility.");
+                            break;
+                            case 11: $('#changeLevel').html(string + " some control and considerable flexibility.");
+                            break;
+                            case 12: $('#changeLevel').html(string + " low control and high flexibility.");
+                            break;
+                            case 13: $('#changeLevel').html(string + " very low control and very high flexibility.");
+                            break;
+                            case 14: $('#changeLevel').html(string + " very low control and very high flexibility.");
+                            break;
+                            case 15: $('#changeLevel').html(string + " minimum control and maximum flexibility.");
+                            break;
+                        }
+                        $('#changeLevel').show();
+                    } else {$('#changeLevel').hide();}
+                    }
+                }),
                 /* Grab and cache the newly created slider handle */
                 handle = $('.ui-slider-handle', slider);
         /* 
@@ -439,13 +425,13 @@
                     at: 'top center',
                     container: handle // Stick it inside the handle element so it keeps the position synched up
                 },
+                hide: {delay: 1000}, // Give it a longer delay so it doesn't hide frequently as we move the handle
                 style: {classes: 'ui-tooltip-slider', widget: true}, // Make it Themeroller compatible
                 width:'25px',
                 height:100,
-                hide:false,
                 show:{
-                    target: $(':input, #slider .ui-slider.handle'),
-                    event:'click'
+                    target:$(':input'),
+                    event:'click mouseenter'
                 }
             });
         });        
