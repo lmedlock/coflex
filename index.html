@@ -28,48 +28,64 @@
             if(c !==0 || d !==0 || mu !==0 || mo !==0){
                 if (c !== 0 && d == 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({values:1});
-                    $( "#currentLevel").html("The current team configuration provides minimum flexibility and maximum control");
+                    $( "#currentLevel").html("The current team configuration provides maximum control and minimum flexibility.");
                     }
                 else if (c == 0 && d !== 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({value: 2});
+                    $( "#currentLevel").html("The current team configuration provides very high control and very low flexibility.");
                 }
                 else if (c !== 0 && d !== 0 && mu == 0 && mo == 0){
                     $( "#slider" ).slider({value:3});
+                    $( "#currentLevel").html("The current team configuration provides very high control and very low flexibility.");
                 }
                 else if (c !== 0 && d !== 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:4});
+                    $( "#currentLevel").html("The current team configuration provides high control and low flexibility.");
                 }
                 else if (c !== 0 && d !== 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:5});
+                    $( "#currentLevel").html("The current team configuration provides considerable control and some flexibility.");
                 }
                 else if (c !== 0 && d == 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:6});
+                    $( "#currentLevel").html("The current team configuration provides considerable control and some flexibility.");
                 }
                 else if (c !== 0 && d == 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:7});
+                    $( "#currentLevel").html("The current team configuration provides some control and some flexibility.");
                 }
                 else if (c !== 0 && d == 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:8});
+                    $( "#currentLevel").html("The current team configuration provides some control and some flexibility.");
                 }
                 else if (c == 0 && d !== 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:9});
+                    $( "#currentLevel").html("The current team configuration provides some control and some flexibility.");
                 }
                 else if (c == 0 && d !== 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:10});
+                    $( "#currentLevel").html("The current team configuration provides some control and considerable flexibility.");
                 }
                 else if (c == 0 && d !== 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:11});
+                    $( "#currentLevel").html("The current team configuration provides some control and considerable flexibility.");
                 }
                 else if (c !== 0 && d !== 0 && mu !== 0 && mo !== 0){
                     $( "#slider" ).slider({ value:12});
+                    $( "#currentLevel").html("The current team configuration provides low control and high flexibility.");
                 }
                 else if (c == 0 && d == 0 && mu !== 0 && mo == 0){
                     $( "#slider" ).slider({ value:13});
+                    $( "#currentLevel").html("The current team configuration provides very low control and very high flexibility.");
                 }
                 else if (c == 0 && d == 0 && mu == 0 && mo !== 0){
                     $( "#slider" ).slider({ value:14});
+                    $( "#currentLevel").html("The current team configuration provides very low control and very high flexibility.");
                 }
-                else {$( "#slider" ).slider({ value:15});}
+                else{
+                    $( "#slider" ).slider({ value:15});
+                    $( "#currentLevel").html("The current team configuration provides minimum control and maximum flexibility.");
+                    }
             }
             
             originalValue = $( "#slider" ).slider( "option", "value" );
@@ -323,7 +339,7 @@
                     </div>
                     <div id="flexInfo">
                         <div class="levelDesc" id="currentLevel"></div>
-                        <div class="levelDesc" id="changeLevel">Describe flexibility change here.</div>
+                        <div class="levelDesc" id="changeLevel"></div>
                     </div>
                     <div class="articleBody clear"></div>
                 </article>
@@ -425,7 +441,7 @@
                     at: 'top center',
                     container: handle // Stick it inside the handle element so it keeps the position synched up
                 },
-                hide: {delay: 1000}, // Give it a longer delay so it doesn't hide frequently as we move the handle
+                hide: {delay: 1000000}, // Give it a longer delay so it doesn't hide frequently as we move the handle
                 style: {classes: 'ui-tooltip-slider', widget: true}, // Make it Themeroller compatible
                 width:'25px',
                 height:100,
